@@ -1,0 +1,20 @@
+# Logging configuration
+
+logging:
+  version: 1
+  formatters:
+    etl:
+      format: "ETL transformer - %(asctime)s | %(levelname)s | %(filename)s:%(lineno)d - %(funcName)s | %(message)s"
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: etl
+      level: DEBUG
+    file:
+      class: logging.FileHandler
+      filename: logs/etl_v1.log
+      formatter: etl
+      level: DEBUG
+  root:
+    level: DEBUG
+    handlers: [console, file]      
